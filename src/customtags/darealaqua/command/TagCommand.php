@@ -29,7 +29,7 @@ class TagCommand extends Command {
         private Main $main
     ) {
         parent::__construct("tag", "Tags.", "", ["tags"]);
-        $this->setPermisions("customtags.use");
+        $this->setPermission("customtags.use");
     }
 
     /**
