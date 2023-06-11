@@ -37,8 +37,8 @@ class EventListener implements Listener {
     public function onPlayerChat(PlayerChatEvent $event) : void {
         $player = $event->getPlayer();
         $api = $this->main->getAPI();
-        $format = str_replace(["{tag}", "{format}"], [$api->getPlayerTag($player, API::CHAT_FORMAT), $event->getFormat()], $api->getCfg()->get("chat-format"));
-        $event->setFormat($format);
+        $format = str_replace(["{tag}", "{format}"], [$api->getPlayerTag($player, API::CHAT_FORMAT), $event->getFormatter()], $api->getCfg()->get("chat-format"));
+        $event->setFormatter(new LegacyRawChatFormatter($format));
     }
 
     /**
