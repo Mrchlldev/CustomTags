@@ -7,3 +7,8 @@ description: A Custom Tags plugin made with love by DaRealAqua
 website: discord.levania.eu
 depend:
   - EconomyAPI
+
+permisions:
+  customtags.use:
+    description: Use Tags On Chat
+    default: true
