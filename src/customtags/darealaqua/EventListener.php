@@ -16,6 +16,7 @@ namespace customtags\darealaqua;
 
 use customtags\darealaqua\utils\API;
 use pocketmine\event\Listener;
+use pocketmine\player\chat\LegacyRawChatFormatter;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerLoginEvent;
 
