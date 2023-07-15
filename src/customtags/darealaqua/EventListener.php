@@ -42,8 +42,8 @@ class EventListener implements Listener {
         $api = $this->main->getAPI();
         if($event->isCancelled()) return;
         if(Main::getInstance()->pureChat !== null){
-            $worldName = Main::getInstance()->pureChat->getConfig->get("enable-multiworld-chat") ? $player->getWorld->getFolderName() : null;
-            $chatFormatter = Main::getInstance()->pureChat->getChatFormat($player, $message, $worldName);
+            $worldName = $this->main->pureChat->getConfig->get("enable-multiworld-chat") ? $player->getWorld->getFolderName() : null;
+            $chatFormatter = $this->main->pureChat->getChatFormat($player, $message, $worldName);
         $chatFormatter = str_replace("{tag}", ($api->getPlayerTag($player, API::CHAT_FORMAT) ? ""), $chatFormatter);
         $event->setFormatter(new LegacyRawChatFormatter((string)$chatFormatter));
     }
