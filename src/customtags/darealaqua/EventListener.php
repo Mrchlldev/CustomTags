@@ -19,6 +19,7 @@ use pocketmine\event\Listener;
 use pocketmine\player\chat\LegacyRawChatFormatter;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerLoginEvent;
+use customtags\darealaqua\Main;
 
 class EventListener implements Listener {
 
@@ -39,7 +40,11 @@ class EventListener implements Listener {
         $player = $event->getPlayer();
         $message = $event->getMesssge();
         $api = $this->main->getAPI();
-        $chatFormatter = str_replace(["{tag}", "{format}"], [$api->getPlayerTag($player, API::CHAT_FORMAT), $event->getFormatter()], $api->getCfg()->get("chat-format"));
+        if($event->isCancelled()) return;
+        if(Main::getInstance()->pureChat !== null){
+            $worldName = Main::getInstance()->pureChat->getConfig->get("enable-multiworld-chat") ? $player->getWorld->getFolderName() : null;
+            $chatFormatter = Main::getInstance()->pureChat->getChatFormat($player, $message, $worldName);
+        $chatFormatter = str_replace(["{tag}"], [$api->getPlayerTag($player, API::CHAT_FORMAT)], $chatFormatter);
         $event->setFormatter(new LegacyRawChatFormatter($chatFormatter));
     }
 
