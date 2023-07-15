@@ -7,15 +7,15 @@
 #
 # Available Tags
 tags:
-  levania:
+  killer:
     name: "§l§4Killer§r"
-    perm: levania.tag
+    perm: killer.tag
     cost: 1000
-  darealaqua:
+  hunter:
     name: "§l§cHunter§r"
-    perm: darealaqua.tag
+    perm: hunter.tag
     cost: 5000
-  aquadevs:
+  farmer:
     name: "§l§aFarmer§r"
-    perm: aquadevs.tag
+    perm: farmer.tag
     cost: 10000
