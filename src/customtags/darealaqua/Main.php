@@ -28,6 +28,9 @@ class Main extends PluginBase {
     /** @var API */
     private API $api;
 
+    /** @var Guild $instance */
+    private static Guild $instance;
+
     /**
      * @return void
      */
@@ -37,6 +40,11 @@ class Main extends PluginBase {
         $this->pureChat = $this->getServer()->getPluginManager()->getPlugin("PureChat");
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
         $this->getServer()->getCommandMap()->register($this->getName(), new TagCommand($this));
+    }
+
+    public static function getInstance(): Main
+    {
+        return self::$instance;
     }
 
     /**
