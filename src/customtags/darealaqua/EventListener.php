@@ -44,7 +44,7 @@ class EventListener implements Listener {
         if($this->main->pureChat !== null){
             $worldName = $this->main->pureChat->getConfig->get("enable-multiworld-chat") ? $player->getWorld->getFolderName() : null;
             $chatFormatter = $this->main->pureChat->getChatFormat($player, $message, $worldName);
-        $chatFormatter = str_replace("{tag}", ($api->getPlayerTag($player, API::CHAT_FORMAT) ? "")), $chatFormatter);
+        $chatFormatter = str_replace("{tag}", ($api->getPlayerTag($player, API::CHAT_FORMAT) ? ""), $chatFormatter);
         $event->setFormatter(new LegacyRawChatFormatter((string)$chatFormatter));
     }
 
